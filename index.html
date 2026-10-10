@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Thành Viên Nhóm</title>
+    <!-- Font chữ tiếng Việt hiện đại & Icon Set FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .header-title h1 {
+            color: #1e293b;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header-title p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .member-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 1s ease-out forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe, #00c6ff);
+            background-size: 200% 200%;
+            animation: gradientBorder 4s ease infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .member-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            transition: transform 0.5s   ease;
+        }
+
+        .member-card:hover img {
+            transform: scale(1.06) rotate(2deg);
+        }
+
+        .member-card h2 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0284c7;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .info-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .info-item {
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border-left: 4px solid #38bdf8;
+            font-size: 14px;
+            color: #475569;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .info-item:hover {
+            background: #f1f5f9;
+            transform: translateX(4px);
+        }
+
+        .info-item strong {
+            color: #1e293b;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-btn.facebook:hover {
+            background: #1877f2;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+
+        .social-btn.github:hover {
+            background: #24292e;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(36, 41, 46, 0.3);
+        }
+
+        .social-btn.email:hover {
+            background: #ea4335;
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+        }
+
+        /* NÚT XEM CHI TIẾT NẰM DƯỚI NÚT MXH */
+        .view-btn {
+            width: 100%;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+
+        .view-btn:hover {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
+        }
+
+        .view-btn i {
+            font-size: 13px;
+            transition: transform 0.3s ease;
+        }
+
+        .view-btn:hover i {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-title">
+        <h1>Thành Viên  Nhóm Một</h1>
+       
+    </div>
+
+    <div class="team-container">
+        <!-- THÀNH VIÊN 1 -->
+        <div class="member-card">
+            <div class="img-container">
+                <img src="https://i.ibb.co/prbmHwBT/meme-meo-4.jpg" alt="Nguyễn Anh Duy">
+            </div>
+            <h2>Nguyễn Anh Duy</h2>
+            <span class="role-badge">Trưởng Nhóm </span>
+
+            <div class="info-list">
+               
+            </div>
+
+            <!-- Các nút MXH -->
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-btn facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://tiktok.com" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <!-- Nút Xem Nằm Dưới Nút MXH -->
+            <a href="#" class="view-btn">
+                <span>Xem chi tiết</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- THÀNH VIÊN 2 -->
+        <div class="member-card">
+            <div class="img-container">
+                <img src="https://i.ibb.co/kFWcpN6/meme-meo-9.jpg" alt="Thành viên 2">
+               
+            </div>
+            <h2>Trần Dũ  Duy </h2>
+            <span class="role-badge">Thành viên</span>
+
+            <div class="info-list">
+                
+                
+            </div>
+
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-btn facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://tiktok.com" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <a href="#" class="view-btn">
+                <span>Xem chi tiết</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- THÀNH VIÊN 3 -->
+        <div class="member-card">
+            <div class="img-container">
+                <img src="https://i.ibb.co/GfjYtKr5/7a8d30314f32cf6c9623.jpg" alt="Thành viên 3">
+            </div>
+            <h2>Nguyễn Minh Kha</h2>
+            <span class="role-badge">Thành viên</span>
+
+            <div class="info-list">
+              
+            </div>
+
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-btn facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://tiktok.com" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <a href="https://khanguyene.github.io/gt-n-ng-c-p/" class="view-btn">
+                <span>Xem chi tiết</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
